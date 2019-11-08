@@ -6,6 +6,13 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'laravel-notification-channels/webpush' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NotificationChannels\\WebPush\\WebPushServiceProvider',
+    ),
+  ),
   'laravel/tinker' => 
   array (
     'providers' => 

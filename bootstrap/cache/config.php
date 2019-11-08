@@ -40,6 +40,7 @@
       23 => 'App\\Providers\\AuthServiceProvider',
       24 => 'App\\Providers\\EventServiceProvider',
       25 => 'App\\Providers\\RouteServiceProvider',
+      26 => 'NotificationChannels\\WebPush\\WebPushServiceProvider',
     ),
     'aliases' => 
     array (
@@ -297,16 +298,16 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '2525',
+    'host' => 'smtp.gmail.com',
+    'port' => '587',
     'from' => 
     array (
-      'address' => 'hello@example.com',
-      'name' => 'Example',
+      'address' => 'dipakrathod258@gmail.com',
+      'name' => 'Dipak Rathod',
     ),
-    'encryption' => NULL,
-    'username' => NULL,
-    'password' => NULL,
+    'encryption' => 'tls',
+    'username' => 'dipakrathod258@gmail.com',
+    'password' => 'Clay*Jensen%258',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
@@ -416,6 +417,24 @@
       0 => '/home/krupa/Desktop/firebase/firebase/resources/views',
     ),
     'compiled' => '/home/krupa/Desktop/firebase/firebase/storage/framework/views',
+  ),
+  'webpush' => 
+  array (
+    'vapid' => 
+    array (
+      'subject' => NULL,
+      'public_key' => 'BIkxY8twAZOHu5p-DvpdqWaw95zIdGBYzvb57jluo3uXywEn_WF015PIEPKcESEg309bEY3IjxreEGt-CmK1GQc',
+      'private_key' => 'mVIjz5XDTW25Y68BREwFnLQ60UtuI4VTfOK_oCCPEI4',
+      'pem_file' => NULL,
+    ),
+    'gcm' => 
+    array (
+      'key' => NULL,
+      'sender_id' => NULL,
+    ),
+    'model' => 'NotificationChannels\\WebPush\\PushSubscription',
+    'table_name' => 'push_subscriptions',
+    'database_connection' => 'mysql',
   ),
   'trustedproxy' => 
   array (

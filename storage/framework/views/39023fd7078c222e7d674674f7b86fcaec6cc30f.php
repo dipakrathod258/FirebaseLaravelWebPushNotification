@@ -68,6 +68,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="<?php echo e(url('/notify')); ?>">Notify</a>
+                            </li>
                         <?php endif; ?>
                     </ul>
                 </div>

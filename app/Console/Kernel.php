@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Console;
+use App\User;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\WordOfTheDay::class,
     ];
 
     /**
@@ -24,8 +25,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('word:day')
+            ->everyMinute();
+        // $schedule->call(function () {
+        //             User::where('spam_count', '>', 100)
+        //                 ->get()
+        //                 ->each
+        //                 ->delete();
+        //         })->hourly();
     }
 
     /**

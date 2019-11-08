@@ -66,6 +66,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{ url('/notify') }}">Notify</a>
+                            </li>
                         @endguest
                     </ul>
                 </div>
