@@ -22,4 +22,4 @@ Route::post('/register_credentials', 'HomeController@register_credentials');
 
 Route::get('/booking', 'BookingController@index');
 Route::post('/createBooking', 'BookingController@store');
-Route::get('/notify', 'BookingController@notify');
+Route::post('/notify', 'BookingController@notify');

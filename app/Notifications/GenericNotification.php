@@ -2,23 +2,33 @@
 
 namespace App\Notifications;
 
+// use Illuminate\Bus\Queueable;
+// use Illuminate\Notifications\Notification;
+// use Illuminate\Contracts\Queue\ShouldQueue;
+// use Illuminate\Notifications\Messages\MailMessage;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
 
 class GenericNotification extends Notification
 {
     use Queueable;
+    public $title, $body;
+
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title, $body)
     {
-        //
+        $this->title = $title;
+        $this->body = $body;
     }
 
     /**
@@ -29,7 +39,7 @@ class GenericNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return [WebPushChannel::class];
     }
 
     /**
@@ -38,27 +48,37 @@ class GenericNotification extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    // public function toMail($notifiable)
+    // {
+    //     return (new MailMessage)
+    //                 ->line('The introduction to the notification.')
+    //                 ->action('Notification Action', url('/'))
+    //                 ->line('Thank you for using our application!');
+
+
+
+    // }
+
+    public function toWebPush($notifiable, $notification)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-
-
-
+      $time = \Carbon\Carbon::now();
+        return WebPushMessage::create()
+            // ->id($notification->id)
+            ->title($this->title)
+            ->icon(url('/push.png'))
+            ->body($this->body);
+            //->action('View account', 'view_account');
     }
-
     /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
+    // public function toArray($notifiable)
+    // {
+    //     return [
+    //         //
+    //     ];
+    // }
 }

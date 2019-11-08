@@ -20,13 +20,15 @@ class BookingController extends Controller
     }
 
     public function notify(Request $request) {
-        $user = \App\User::find(19);
+        $user = \App\User::find(22);
+        dd("andar aya");        
         $endpoint = $user->endpoint;
         $auth_secret = $user->authSecret;
         $key = $user->key;
 
         $user->updatePushSubscription($endpoint, $key, $auth_secret);
-        $user->notify(new \App\Notifications\GenericNotification("Welcome To WebPush", "You will now get all of our push notifications"));        
+
+        $user->notify(new \App\Notifications\GenericNotification($request->title, $request->body));        
         $response["status"] = "success";
         return $response;
     }

@@ -89,3 +89,8 @@
   
 </body>
 </html>
+
+  $user->notify(new \App\Notifications\GenericNotification($request->title, $request->body));
+  return response()->json([
+    'success' => true
+  ]);

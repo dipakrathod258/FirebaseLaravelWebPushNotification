@@ -35,14 +35,14 @@
 
         // Listen to messages from service workers.
     	navigator.serviceWorker.addEventListener('message', function(event) {
-    		 //window.parent.showReminder(event.data);
-    		// console.log(event.data);
+    		 window.parent.showReminder(event.data);
+    		console.log(event.data);
     	});
   	}
 	
 	/********Demo 5 Adding Push notifications*******/
 	
-	function initialiseState() {  
+	function initialiseState() {
 
 	  	// Are Notifications supported in the service worker?  
 	  	if (!('showNotification' in ServiceWorkerRegistration.prototype)) {  
@@ -57,15 +57,14 @@
 	        registration.pushManager.getSubscription()
 	        .then(function (subscription) {
 	          if (subscription) {
-	          	// console.log(subscription);
 	          	rawKey = "BAEomHexBuY2fjTdHUrw1A3ssnHBO5GEgzSsXIZaygg9nk4mW2aYysoxUVehlDk-K7F_JZbMFw_YfoKZ9Ty_Tuw";
 	          	var rawKey = subscription.getKey ? subscription.getKey('p256dh') : '';
                 var key = rawKey ? Base64EncodeUrl(btoa(String.fromCharCode.apply(null, new Uint8Array(rawKey)))) : '';
                 var rawAuthSecret = subscription.getKey ? subscription.getKey('auth') : '';
                 var authSecret = rawAuthSecret ? Base64EncodeUrl(btoa(String.fromCharCode.apply(null, new Uint8Array(rawAuthSecret)))) : '';             
-                // console.log("Key: " + key);
-                // console.log("AuthSecret: " + authSecret);
-                // console.log('endpoint:', subscription.endpoint);
+                console.log("Key: " + key);
+                console.log("AuthSecret: " + authSecret);
+                console.log('endpoint:', subscription.endpoint);
 	          	//just in case if registration id is not saved on server.
 	            saveSubscriptionID(subscription, key, authSecret,subscription.endpoint);
 	          }
@@ -130,7 +129,7 @@
       'X-CSRF-Token': $('meta[name="_token"]').attr('content')
     },
 				data: {
-					userId : 19,
+					userId : 22,
 					key: key,
 					authSecret: authSecret,
 					endpoint: endpoint,

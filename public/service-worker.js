@@ -26,20 +26,20 @@ var filesToCache = [
 self.addEventListener('push', function(event) {
   var data = event.data;
 
-  // if(data.trigger_date!=null || data.trigger_date!='undefined'){
+  if(data.trigger_date!=null || data.trigger_date!='undefined'){
 
-  //   var trigger_date=data.trigger_date;
-  //   var todo_id=data.todo_id;
-  //   var reminder_id=data.reminder_id;
-  // }
+    var trigger_date=data.trigger_date;
+    var todo_id=data.todo_id;
+    var reminder_id=data.reminder_id;
+  }
 
-  // if(data.snooze_id!=null || data.snooze_id!='undefined'){
+  if(data.snooze_id!=null || data.snooze_id!='undefined'){
 
-  // var snooze_id = data.snooze_id;
-  // var user_id = data.user_id;
-  // var employee_id = data.employee_id;
-  // var snooze_time = data.snooze_time;
-  // }
+  var snooze_id = data.snooze_id;
+  var user_id = data.user_id;
+  var employee_id = data.employee_id;
+  var snooze_time = data.snooze_time;
+  }
 
   snooze_id="sss";
 
