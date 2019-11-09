@@ -21,5 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/register_credentials', 'HomeController@register_credentials');
 
 Route::get('/booking', 'BookingController@index');
+Route::get('/view_account', 'BookingController@fb');
 Route::post('/createBooking', 'BookingController@store');
 Route::post('/notify', 'BookingController@notify');

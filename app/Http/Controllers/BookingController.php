@@ -10,6 +10,10 @@ class BookingController extends Controller
     public function index(Request $request) {
     	return view('booking.index');
     }
+   
+    public function fb(Request $request) {
+        return redirect('https://facebook.com/subhash.aade.75/friends?lst=100003360291748%3A100023795800541%3A1515039974&source_ref=pb_friends_tl');
+    }
 
     public function  store(Request $request) {
     	$data = new Booking();

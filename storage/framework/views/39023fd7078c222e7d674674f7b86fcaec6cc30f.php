@@ -83,14 +83,9 @@
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
     <script src="<?php echo e(asset('service-worker.js')); ?>"></script>
-     <script src="<?php echo e(asset('js/app_service_worker/app.js')); ?>"></script>
-    
-   
+    <script src="<?php echo e(asset('js/app_service_worker/app.js')); ?>"></script>
+
+
   
 </body>
 </html>
-
-  $user->notify(new \App\Notifications\GenericNotification($request->title, $request->body));
-  return response()->json([
-    'success' => true
-  ]);

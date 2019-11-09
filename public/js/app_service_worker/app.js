@@ -123,13 +123,13 @@
 
 	    	$.ajax({
 				type: "POST",
-				url: "http://127.0.0.1:8001/register_credentials",
+				url: "https://127.0.0.1:8001/register_credentials",
 				// The key needs to match your method's input parameter (case-sensitive).
-				headers: {
-      'X-CSRF-Token': $('meta[name="_token"]').attr('content')
-    },
+              headers:{
+                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
+               },  
 				data: {
-					userId : 22,
+					userId : 29,
 					key: key,
 					authSecret: authSecret,
 					endpoint: endpoint,
